@@ -503,6 +503,10 @@ app.patch("/api/orders/:id/status", (req, res) => {
 // اجرای سرور
 // ===============================
 
+app.get("/health", (req, res) => {
+    res.status(200).send("cakemofa is alive!");
+});
+
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on 0.0.0.0:${PORT}`);
 });
