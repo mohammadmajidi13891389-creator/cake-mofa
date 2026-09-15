@@ -4,10 +4,9 @@ const express = require("express");
 const path = require("path");
 const db = require("./database");
 
-
 const app = express();
 
-
+const PORT = process.env.PORT || 10000;
 
 const ZARINPAL_REQUEST_URL =
     "https://payment.zarinpal.com/pg/v4/payment/request.json";
@@ -20,7 +19,6 @@ const ZARINPAL_STARTPAY_URL =
 
 const MERCHANT_ID = process.env.ZARINPAL_MERCHANT_ID;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
-
 
 // ===============================
 // تنظیمات
@@ -505,13 +503,6 @@ app.patch("/api/orders/:id/status", (req, res) => {
 // اجرای سرور
 // ===============================
 
-const PORT = process.env.PORT || 3000;
-
-
-app.get("/health", (req, res) => {
-    res.status(200).send("cakemofa is alive!");
-});
-
 app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on ${PORT}`);
+    console.log(`Server running on 0.0.0.0:${PORT}`);
 });
