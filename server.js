@@ -4,9 +4,11 @@ const express = require("express");
 const path = require("path");
 const db = require("./database");
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
-const PORT = 3000;
+
 
 const ZARINPAL_REQUEST_URL =
     "https://payment.zarinpal.com/pg/v4/payment/request.json";
@@ -504,14 +506,7 @@ app.patch("/api/orders/:id/status", (req, res) => {
 // اجرای سرور
 // ===============================
 
-app.listen(PORT, () => {
 
-    console.log("");
-    console.log("=================================");
-    console.log("      cakemofa server started");
-    console.log("=================================");
-    console.log("");
-    console.log(`Website: http://localhost:${PORT}`);
-    console.log(`Admin:   http://localhost:${PORT}/admin.html`);
-    console.log("");
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on ${PORT}`);
 });
