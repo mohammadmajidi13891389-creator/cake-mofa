@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سبد خرید | cakemofa</title>
+
+    <!-- فونت‌ها -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: "Vazirmatn", sans-serif;
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(255, 190, 215, .35),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(255, 210, 225, .4),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fff8fb,
+                    #ffe9f1
+                );
+
+            color: #4b3038;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: 78px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(255, 255, 255, .78);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border-bottom:
+                1px solid rgba(230, 130, 165, .15);
+
+            box-shadow:
+                0 8px 30px rgba(190, 90, 130, .08);
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            color: #df789d;
+        }
+
+
+        .logo img {
+
+            width: 48px;
+
+            height: 48px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 5px 18px
+                rgba(220, 100, 140, .18);
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-btn {
+
+            text-decoration: none;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ef9fba,
+                    #db7198
+                );
+
+            padding: 11px 21px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+            box-shadow:
+                0 8px 20px
+                rgba(220, 100, 140, .2);
+        }
+
+
+        .back-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(220, 100, 140, .3);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: 55px auto 80px;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .title-area {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+            animation:
+                fadeDown .7s ease;
+        }
+
+
+        .title-small {
+
+            color: #df789d;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: .5px;
+
+            margin-bottom: 8px;
+        }
+
+
+        h1 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 46px;
+
+            color: #56343e;
+
+            margin-bottom: 8px;
+        }
+
+
+        .title-description {
+
+            color: #8a6b73;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CART LAYOUT
+        ========================= */
+
+        .cart-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr .8fr;
+
+            gap: 28px;
+
+            align-items: start;
+        }
+
+
+        /* =========================
+           CART BOX
+        ========================= */
+
+        .cart-box {
+
+            background:
+                rgba(255, 255, 255, .82);
+
+            backdrop-filter: blur(15px);
+
+            border:
+                1px solid rgba(255, 255, 255, .8);
+
+            border-radius: 28px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(190, 100, 140, .1);
+
+            animation:
+                fadeUp .7s ease;
+        }
+
+
+        /* =========================
+           CART ITEM
+        ========================= */
+
+        .cart-item {
+
+            display: grid;
+
+            grid-template-columns:
+                90px 1fr auto auto;
+
+            align-items: center;
+
+            gap: 18px;
+
+            padding: 18px 5px;
+
+            border-bottom:
+                1px solid #f5dfe7;
+
+            transition: .3s;
+        }
+
+
+        .cart-item:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .cart-item:hover {
+
+            transform:
+                translateX(-4px);
+        }
+
+
+        /* =========================
+           PRODUCT IMAGE
+        ========================= */
+
+        .item-image {
+
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 22px
+                rgba(190, 100, 130, .15);
+        }
+
+
+        .item-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s;
+        }
+
+
+        .cart-item:hover
+        .item-image img {
+
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           ITEM INFO
+        ========================= */
+
+        .item-info h3 {
+
+            color: #56343e;
+
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .item-info p {
+
+            color: #9a7c84;
+
+            font-size: 13px;
+        }
+
+
+        .item-price {
+
+            margin-top: 8px;
+
+            color: #df789d;
+
+            font-weight: 800;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           QUANTITY
+        ========================= */
+
+        .quantity {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background:
+                #fff5f8;
+
+            padding: 5px;
+
+            border-radius: 30px;
+
+            border:
+                1px solid #f7dce6;
+        }
+
+
+        .quantity button {
+
+            border: none;
+
+            width: 30px;
+
+            height: 30px;
+
+            border-radius: 50%;
+
+            background:
+                #ffe0eb;
+
+            color:
+                #c93668;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+
+        .quantity button:hover {
+
+            background:
+                #f3a4be;
+
+            color: white;
+
+            transform:
+                scale(1.08);
+        }
+
+
+        .quantity span {
+
+            min-width: 25px;
+
+            text-align: center;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           DELETE
+        ========================= */
+
+        .delete-btn {
+
+            border: none;
+
+            background:
+                #fff1f4;
+
+            color:
+                #d34e76;
+
+            padding:
+                9px 13px;
+
+            border-radius:
+                13px;
+
+            cursor: pointer;
+
+            transition: .25s;
+
+            font-family:
+                inherit;
+        }
+
+
+        .delete-btn:hover {
+
+            background:
+                #ffdce6;
+
+            transform:
+                scale(1.05);
+        }
+
+
+        /* =========================
+           EMPTY
+        ========================= */
+
+        .empty {
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            color: #8c747b;
+        }
+
+
+        .empty-icon {
+
+            font-size: 70px;
+
+            margin-bottom: 20px;
+
+            animation:
+                floating 2.5s
+                ease-in-out infinite;
+        }
+
+
+        .empty h2 {
+
+            color:
+                #c94e78;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           SUMMARY
+        ========================= */
+
+        .summary {
+
+            background:
+                rgba(255, 255, 255, .86);
+
+            backdrop-filter:
+                blur(18px);
+
+            border-radius:
+                28px;
+
+            padding:
+                28px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(190, 100, 140, .12);
+
+            position: sticky;
+
+            top: 105px;
+
+            animation:
+                fadeUp .9s ease;
+        }
+
+
+        .summary-title {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 25px;
+
+            color: #56343e;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           PRICE ROWS
+        ========================= */
+
+        .price-row {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 16px;
+
+            color:
+                #79616a;
+
+            font-size: 14px;
+        }
+
+
+        .price-row strong {
+
+            color:
+                #56343e;
+        }
+
+
+        .discount-row {
+
+            color:
+                #d34e76;
+        }
+
+
+        .discount-row strong {
+
+            color:
+                #d34e76;
+        }
+
+
+        .line {
+
+            height: 1px;
+
+            background:
+                #f0d9e2;
+
+            margin:
+                20px 0;
+        }
+
+
+        /* =========================
+           TOTAL
+        ========================= */
+
+        .final-total {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .final-total
+        span:first-child {
+
+            font-weight: 700;
+
+            color:
+                #56343e;
+        }
+
+
+        .final-price {
+
+            color:
+                #d94d7d;
+
+            font-size:
+                25px;
+
+            font-weight:
+                900;
+        }
+
+
+        /* =========================
+           DISCOUNT
+        ========================= */
+
+        .discount-box {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #ffe5ee
+                );
+
+            border-radius:
+                20px;
+
+            padding:
+                18px;
+
+            margin-bottom:
+                20px;
+
+            border:
+                1px solid #f8d5e1;
+        }
+
+
+        .discount-title {
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            color:
+                #bd3d68;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .discount-input {
+
+            display:
+                flex;
+
+            gap:
+                8px;
+        }
+
+
+        .discount-input input {
+
+            flex:
+                1;
+
+            min-width:
+                0;
+
+            border:
+                1px solid #f1cad8;
+
+            outline:
+                none;
+
+            background:
+                white;
+
+            border-radius:
+                13px;
+
+            padding:
+                11px 12px;
+
+            font-family:
+                inherit;
+
+            color:
+                #56343e;
+
+            direction:
+                ltr;
+
+            text-align:
+                left;
+        }
+
+
+        .discount-input input:focus {
+
+            border-color:
+                #df789d;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(223, 120, 157, .1);
+        }
+
+
+        .discount-input button {
+
+            border:
+                none;
+
+            background:
+                #e98eae;
+
+            color:
+                white;
+
+            padding:
+                0 15px;
+
+            border-radius:
+                13px;
+
+            cursor:
+                pointer;
+
+            font-family:
+                inherit;
+
+            font-weight:
+                700;
+
+            transition:
+                .25s;
+        }
+
+
+        .discount-input button:hover {
+
+            background:
+                #d87599;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .discount-message {
+
+            font-size:
+                12px;
+
+            margin-top:
+                10px;
+
+            min-height:
+                18px;
+        }
+
+
+        /* =========================
+           PAYMENT
+        ========================= */
+
+        .payment-box {
+
+            background:
+                #fff8fa;
+
+            border:
+                1px solid #f2dce5;
+
+            border-radius:
+                18px;
+
+            padding:
+                16px;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .payment-title {
+
+            font-weight:
+                700;
+
+            color:
+                #56343e;
+
+            margin-bottom:
+                10px;
+
+            font-size:
+                14px;
+        }
+
+
+        .payment-option {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            color:
+                #755d65;
+
+            font-size:
+                13px;
+        }
+
+
+        .payment-icon {
+
+            width:
+                38px;
+
+            height:
+                38px;
+
+            border-radius:
+                12px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #ffe2ec;
+
+            font-size:
+                19px;
+        }
+
+
+        /* =========================
+           ORDER BUTTON
+        ========================= */
+
+        .order-btn {
+
+            width:
+                100%;
+
+            border:
+                none;
+
+            padding:
+                16px;
+
+            border-radius:
+                18px;
+
+            cursor:
+                pointer;
+
+            color:
+                white;
+
+            font-family:
+                inherit;
+
+            font-size:
+                16px;
+
+            font-weight:
+                800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ec9db9,
+                    #d95e8b
+                );
+
+            box-shadow:
+                0 12px 28px
+                rgba(220, 90, 130, .25);
+
+            transition:
+                .3s;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        .order-btn::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            top:
+                0;
+
+            left:
+                -100%;
+
+            width:
+                60%;
+
+            height:
+                100%;
+
+            background:
+                rgba(255,255,255,.2);
+
+            transform:
+                skewX(-20deg);
+
+            transition:
+                .6s;
+        }
+
+
+        .order-btn:hover::before {
+
+            left:
+                140%;
+        }
+
+
+        .order-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 16px 32px
+                rgba(220, 90, 130, .32);
+        }
+
+
+        /* =========================
+           CLEAR
+        ========================= */
+
+        .clear-btn {
+
+            width:
+                100%;
+
+            border:
+                none;
+
+            background:
+                transparent;
+
+            color:
+                #b17d8c;
+
+            margin-top:
+                14px;
+
+            padding:
+                10px;
+
+            cursor:
+                pointer;
+
+            font-family:
+                inherit;
+
+            transition:
+                .2s;
+        }
+
+
+        .clear-btn:hover {
+
+            color:
+                #d34e76;
+        }
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+
+            position:
+                fixed;
+
+            bottom:
+                25px;
+
+            right:
+                25px;
+
+            z-index:
+                9999;
+
+            background:
+                #56343e;
+
+            color:
+                white;
+
+            padding:
+                15px 22px;
+
+            border-radius:
+                16px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,.2);
+
+            opacity:
+                0;
+
+            transform:
+                translateY(25px);
+
+            pointer-events:
+                none;
+
+            transition:
+                .35s;
+        }
+
+
+        .toast.show {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes fadeDown {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes floating {
+
+            0%, 100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-10px);
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .cart-layout {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .summary {
+
+                position:
+                    static;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            header {
+
+                padding:
+                    0 5%;
+
+                height:
+                    70px;
+            }
+
+            .logo {
+
+                font-size:
+                    23px;
+            }
+
+            .logo img {
+
+                width:
+                    40px;
+
+                height:
+                    40px;
+            }
+
+            h1 {
+
+                font-size:
+                    36px;
+            }
+
+            .cart-box {
+
+                padding:
+                    15px;
+            }
+
+            .cart-item {
+
+                grid-template-columns:
+                    70px 1fr;
+
+                gap:
+                    13px;
+            }
+
+            .item-image {
+
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .quantity {
+
+                grid-column:
+                    2;
+            }
+
+            .delete-btn {
+
+                grid-column:
+                    2;
+
+                width:
+                    fit-content;
+            }
+
+            .toast {
+
+                right:
+                    15px;
+
+                left:
+                    15px;
+
+                text-align:
+                    center;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+
+        <img
+            src="https://imglink.cc/cdn/MRI-pwqIUq.png"
+            alt="cakemofa"
+        >
+
+        <span>
+            cakemofa
+        </span>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← ادامه خرید
+    </a>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+
+    <div class="title-area">
+
+        <div class="title-small">
+            SWEET SHOP
+        </div>
+
+        <h1>
+            سبد خرید شما 🛒
+        </h1>
+
+        <div class="title-description">
+            خوشمزه‌های انتخاب‌شده شما اینجا منتظرند 🍰
+        </div>
+
+    </div>
+
+
+
+    <div class="cart-layout">
+
+
+        <!-- =========================
+             CART
+        ========================= -->
+
+        <div class="cart-box">
+
+            <div id="cart-items"></div>
+
+
+            <div
+                id="empty-cart"
+                class="empty"
+                style="display:none;"
+            >
+
+                <div class="empty-icon">
+                    🧁
+                </div>
+
+                <h2>
+                    سبد خریدت خالیه!
+                </h2>
+
+                <p>
+                    چندتا شیرینی خوشمزه انتخاب کن و برگرد 😋
+                </p>
+
+                <br>
+
+                <a
+                    href="index.html"
+                    class="back-btn"
+                >
+                    🍰 مشاهده محصولات
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             SUMMARY
+        ========================= -->
+
+        <div
+            class="summary"
+            id="cart-summary"
+        >
+
+            <div class="summary-title">
+                خلاصه سفارش
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    مبلغ محصولات
+                </span>
+
+                <strong id="subtotal">
+                    ۰ تومان
+                </strong>
+
+            </div>
+
+
+            <div class="price-row discount-row">
+
+                <span>
+                    تخفیف
+                </span>
+
+                <strong id="discount">
+                    ۰ تومان
+                </strong>
+
+            </div>
+
+
+            <div class="line"></div>
+
+
+            <!-- DISCOUNT -->
+
+            <div class="discount-box">
+
+                <div class="discount-title">
+                    🎟️ کد تخفیف داری؟
+                </div>
+
+                <div class="discount-input">
+
+                    <input
+                        id="discount-code"
+                        type="text"
+                        placeholder="مثلاً CAKE10"
+                        autocomplete="off"
+                    >
+
+                    <button
+                        onclick="applyDiscount()"
+                    >
+                        اعمال
+                    </button>
+
+                </div>
+
+                <div
+                    id="discount-message"
+                    class="discount-message"
+                ></div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="payment-box">
+
+                <div class="payment-title">
+                    💳 روش پرداخت
+                </div>
+
+                <div class="payment-option">
+
+                    <div class="payment-icon">
+                        💳
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            پرداخت آنلاین
+                        </strong>
+
+                        <br>
+
+                        <small>
+                            پرداخت امن و سریع
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="final-total">
+
+                <span>
+                    مبلغ نهایی
+                </span>
+
+                <span
+                    class="final-price"
+                    id="final-total"
+                >
+                    ۰ تومان
+                </span>
+
+            </div>
+
+
+            <button
+                class="order-btn"
+                onclick="orderCart()"
+            >
+                💳 ادامه برای پرداخت
+            </button>
+
+
+            <button
+                class="clear-btn"
+                onclick="clearCart()"
+            >
+                🗑 خالی کردن سبد خرید
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+>
+    🍰
+</div>
+
+
+
+<script>
+
+    /* =========================================
+       تنظیمات
+    ========================================= */
+
+    const DISCOUNT_CODES = {
+
+        "CAKE10": 10,
+
+        "CAKE15": 15,
+
+        "CAKEMOFA": 20
+
+    };
+
+
+    let discountPercent = 0;
+
+
+
+    /* =========================================
+       گرفتن سبد
+    ========================================= */
+
+    function getCart() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "cakemofa_cart"
+                )
+            ) || [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       ذخیره سبد
+    ========================================= */
+
+    function saveCart(cart) {
+
+        localStorage.setItem(
+            "cakemofa_cart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+
+    /* =========================================
+       تبدیل قیمت
+    ========================================= */
+
+    function priceToNumber(price) {
+
+        if (typeof price === "number") {
+
+            return price;
+
+        }
+
+        if (!price) {
+
+            return 0;
+
+        }
+
+        let number = String(price)
+
+            .replace(
+                /[۰-۹]/g,
+                d =>
+                    "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+            )
+
+            .replace(
+                /[٠-٩]/g,
+                d =>
+                    "٠١٢٣٤٥٦٧٨٩".indexOf(d)
+            )
+
+            .replace(/,/g, "")
+
+            .replace(/٬/g, "")
+
+            .replace(/[^\d]/g, "");
+
+        return Number(number) || 0;
+
+    }
+
+
+
+    /* =========================================
+       فرمت قیمت
+    ========================================= */
+
+    function formatPrice(number) {
+
+        return Number(number)
+            .toLocaleString("fa-IR")
+            + " تومان";
+
+    }
+
+
+
+    /* =========================================
+       عکس محصولات
+    ========================================= */
+
+    function getProductImage(name) {
+
+        if (name.includes("ردولوت")) {
+
+            return "https://imglink.cc/cdn/0zm21Y8cOX.jpg";
+
+        }
+
+        if (name.includes("دارک")) {
+
+            return "https://imglink.cc/cdn/voBd9YNqeI.jpg";
+
+        }
+
+        if (name.includes("اسنیکرز")) {
+
+            return "https://imglink.cc/cdn/dzC1HxjTh4.jpg";
+
+        }
+
+        return "https://imglink.cc/cdn/MRI-pwqIUq.png";
+
+    }
+
+
+
+    /* =========================================
+       نمایش سبد
+    ========================================= */
+
+    function showCart() {
+
+        const cart = getCart();
+
+        const cartItems =
+            document.getElementById(
+                "cart-items"
+            );
+
+        const emptyCart =
+            document.getElementById(
+                "empty-cart"
+            );
+
+        const summary =
+            document.getElementById(
+                "cart-summary"
+            );
+
+
+        cartItems.innerHTML = "";
+
+
+        if (cart.length === 0) {
+
+            emptyCart.style.display =
+                "block";
+
+            summary.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        emptyCart.style.display =
+            "none";
+
+        summary.style.display =
+            "block";
+
+
+        let subtotal = 0;
+
+
+        cart.forEach((item, index) => {
+
+            const price =
+                priceToNumber(item.price);
+
+            subtotal += price;
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "cart-item";
+
+
+            div.innerHTML = `
+
+                <div class="item-image">
+
+                    <img
+                        src="${getProductImage(item.name)}"
+                        alt="${item.name}"
+                    >
+
+                </div>
+
+
+                <div class="item-info">
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <p>
+                        cakemofa • محصول تازه
+                    </p>
+
+                    <div class="item-price">
+                        ${formatPrice(price)}
+                    </div>
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="removeOne(${index})"
+                    >
+                        −
+                    </button>
+
+                    <span>
+                        1
+                    </span>
+
+                    <button
+                        onclick="addOne(${index})"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteItem(${index})"
+                >
+                    🗑 حذف
+                </button>
+
+            `;
+
+
+            cartItems.appendChild(div);
+
+        });
+
+
+        updateSummary(subtotal);
+
+    }
+
+
+
+    /* =========================================
+       محاسبه خلاصه
+    ========================================= */
+
+    function updateSummary(subtotal) {
+
+        const discountAmount =
+            Math.round(
+                subtotal *
+                discountPercent /
+                100
+            );
+
+
+        const finalPrice =
+            subtotal -
+            discountAmount;
+
+
+        document.getElementById(
+            "subtotal"
+        ).textContent =
+            formatPrice(subtotal);
+
+
+        document.getElementById(
+            "discount"
+        ).textContent =
+            discountAmount > 0
+                ? "-" +
+                  formatPrice(
+                      discountAmount
+                  )
+                : "۰ تومان";
+
+
+        document.getElementById(
+            "final-total"
+        ).textContent =
+            formatPrice(finalPrice);
+
+    }
+
+
+
+    /* =========================================
+       اضافه کردن محصول
+    ========================================= */
+
+    function addOne(index) {
+
+        const cart =
+            getCart();
+
+
+        cart.push({
+
+            name:
+                cart[index].name,
+
+            price:
+                cart[index].price
+
+        });
+
+
+        saveCart(cart);
+
+        showCart();
+
+        showToast(
+            "🍰 تعداد محصول افزایش پیدا کرد"
+        );
+
+    }
+
+
+
+    /* =========================================
+       کم کردن محصول
+    ========================================= */
+
+    function removeOne(index) {
+
+        const cart =
+            getCart();
+
+
+        cart.splice(index, 1);
+
+
+        saveCart(cart);
+
+        showCart();
+
+    }
+
+
+
+    /* =========================================
+       حذف کامل
+    ========================================= */
+
+    function deleteItem(index) {
+
+        const cart =
+            getCart();
+
+
+        const name =
+            cart[index].name;
+
+
+        cart.splice(index, 1);
+
+
+        saveCart(cart);
+
+        showCart();
+
+
+        showToast(
+            "🗑 " +
+            name +
+            " حذف شد"
+        );
+
+    }
+
+
+
+    /* =========================================
+       خالی کردن سبد
+    ========================================= */
+
+    function clearCart() {
+
+        if (
+            !confirm(
+                "آیا مطمئنی می‌خواهی سبد خرید خالی شود؟"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        localStorage.removeItem(
+            "cakemofa_cart"
+        );
+
+
+        discountPercent = 0;
+
+
+        document.getElementById(
+            "discount-code"
+        ).value = "";
+
+
+        document.getElementById(
+            "discount-message"
+        ).textContent = "";
+
+
+        showCart();
+
+
+        showToast(
+            "🗑 سبد خرید خالی شد"
+        );
+
+    }
+
+
+
+    /* =========================================
+       اعمال کد تخفیف
+    ========================================= */
+
+    function applyDiscount() {
+
+        const input =
+            document.getElementById(
+                "discount-code"
+            );
+
+
+        const message =
+            document.getElementById(
+                "discount-message"
+            );
+
+
+        const code =
+            input.value
+                .trim()
+                .toUpperCase();
+
+
+        if (!code) {
+
+            message.style.color =
+                "#d34e76";
+
+            message.textContent =
+                "❌ لطفاً کد تخفیف را وارد کن";
+
+            return;
+
+        }
+
+
+        if (DISCOUNT_CODES[code]) {
+
+            discountPercent =
+                DISCOUNT_CODES[code];
+
+
+            message.style.color =
+                "#38a169";
+
+
+            message.textContent =
+                "🎉 کد تخفیف با موفقیت اعمال شد! " +
+                discountPercent +
+                "% تخفیف";
+
+
+            showToast(
+                "🎉 " +
+                discountPercent +
+                "% تخفیف اعمال شد!"
+            );
+
+
+            showCart();
+
+        } else {
+
+            discountPercent = 0;
+
+
+            message.style.color =
+                "#d34e76";
+
+
+            message.textContent =
+                "❌ این کد تخفیف معتبر نیست";
+
+
+            showCart();
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       رفتن به Checkout
+    ========================================= */
+
+    function orderCart() {
+
+        const cart =
+            getCart();
+
+
+        if (cart.length === 0) {
+
+            showToast(
+                "🛒 سبد خرید خالی است"
+            );
+
+            return;
+
+        }
+
+
+        /*
+            تخفیف فعلی را موقتاً ذخیره می‌کنیم
+            تا checkout.html هم آن را بداند.
+        */
+
+        localStorage.setItem(
+            "cakemofa_discount",
+            String(discountPercent)
+        );
+
+
+        window.location.href =
+            "checkout.html";
+
+    }
+
+
+
+    /* =========================================
+       پیام Toast
+    ========================================= */
+
+    function showToast(text) {
+
+        const toast =
+            document.getElementById(
+                "toast"
+            );
+
+
+        toast.textContent =
+            text;
+
+
+        toast.classList.add(
+            "show"
+        );
+
+
+        setTimeout(() => {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        }, 2200);
+
+    }
+
+
+
+    /* =========================================
+       شروع
+    ========================================= */
+
+    showCart();
+
+</script>
+
+
+</body>
+
+</html>

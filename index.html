@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>cakemofa | کیک و شیرینی</title>
+
+    <!-- فونت‌ها -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background: #fff8fb;
+            color: #4b3038;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           پس زمینه تزئینی
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #ffd9e8;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: .35;
+            top: -200px;
+            left: -200px;
+            z-index: -1;
+        }
+
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #ffe7d9;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: .3;
+            bottom: -200px;
+            right: -200px;
+            z-index: -1;
+        }
+
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            position: sticky;
+            top: 12px;
+
+            margin: 12px auto 0;
+
+            width: 94%;
+
+            border-radius: 22px;
+
+            background: rgba(255,255,255,.78);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 10px 40px rgba(200,100,140,.12);
+
+            border: 1px solid rgba(255,255,255,.8);
+
+            z-index: 1000;
+
+            animation: headerDown .8s ease;
+        }
+
+
+        @keyframes headerDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+
+        /* LOGO */
+
+        .logo {
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: #df789d;
+
+            cursor: pointer;
+        }
+
+
+        .logo img {
+
+            width: 50px;
+            height: 50px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+
+            transition: .4s;
+
+            box-shadow:
+                0 5px 20px rgba(230,130,160,.2);
+        }
+
+
+        .logo:hover img {
+
+            transform: rotate(-8deg) scale(1.1);
+
+        }
+
+
+        .logo span {
+
+            font-family: "Playfair Display", serif;
+
+            letter-spacing: 1px;
+
+        }
+
+
+
+        /* NAV */
+
+        nav {
+
+            display: flex;
+
+            gap: 30px;
+
+        }
+
+
+        nav a {
+
+            text-decoration: none;
+
+            color: #66434d;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            position: relative;
+
+            transition: .3s;
+
+        }
+
+
+        nav a::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+
+            height: 2px;
+
+            right: 0;
+
+            bottom: -7px;
+
+            background: #e58aaa;
+
+            transition: .3s;
+
+        }
+
+
+        nav a:hover {
+
+            color: #e58aaa;
+
+        }
+
+
+        nav a:hover::after {
+
+            width: 100%;
+
+        }
+
+
+
+        /* CART */
+
+        .cart-btn {
+
+            background:
+                linear-gradient(135deg,#f3a9c0,#e987ab);
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 8px 20px rgba(230,130,160,.25);
+
+            transition: .3s;
+
+        }
+
+
+        .cart-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(230,130,160,.35);
+
+        }
+
+
+        #cart-count {
+
+            background: white;
+
+            color: #df789d;
+
+            border-radius: 50%;
+
+            padding: 2px 7px;
+
+            font-size: 12px;
+
+            margin-right: 5px;
+
+            display: inline-block;
+
+            transition: .3s;
+
+        }
+
+
+        .cart-count-pop {
+
+            animation: cartPop .35s ease;
+
+        }
+
+
+        @keyframes cartPop {
+
+            50% {
+                transform: scale(1.4);
+            }
+
+        }
+
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 650px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 90px 9%;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .hero-text {
+
+            max-width: 590px;
+
+            animation: heroText 1s ease .2s both;
+
+        }
+
+
+        @keyframes heroText {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateX(50px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateX(0);
+
+            }
+
+        }
+
+
+        .hero-text span {
+
+            color: #e58aaa;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            display: inline-block;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .hero-text h1 {
+
+            font-family: "Vazirmatn", sans-serif;
+
+            font-size: clamp(40px,5vw,64px);
+
+            line-height: 1.3;
+
+            margin: 12px 0 20px;
+
+            color: #573540;
+
+            font-weight: 800;
+
+        }
+
+
+        .hero-text h1 strong {
+
+            color: #e58aaa;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 1.05em;
+
+        }
+
+
+        .hero-text p {
+
+            font-size: 16px;
+
+            line-height: 2.2;
+
+            color: #765862;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .hero-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background:
+                linear-gradient(135deg,#e99ab7,#df789d);
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 15px 28px;
+
+            border-radius: 30px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 30px rgba(233,154,183,.3);
+
+            transition: .35s;
+
+        }
+
+
+        .hero-button::after {
+
+            content: "←";
+
+            transition: .3s;
+
+        }
+
+
+        .hero-button:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(233,154,183,.4);
+
+        }
+
+
+        .hero-button:hover::after {
+
+            transform: translateX(-5px);
+
+        }
+
+
+
+        /* HERO IMAGE */
+
+        .hero-image {
+
+            width: 440px;
+
+            height: 440px;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            background: #f8c8d8;
+
+            box-shadow:
+                0 25px 70px rgba(210,120,150,.25);
+
+            position: relative;
+
+            animation:
+                heroImage 1.2s ease .2s both,
+                floatImage 5s ease-in-out 1.5s infinite;
+        }
+
+
+        @keyframes heroImage {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.75)
+                    rotate(8deg);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    rotate(0);
+
+            }
+
+        }
+
+
+        @keyframes floatImage {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+
+        .hero-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.2),
+                    transparent 50%
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .hero-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .7s;
+
+        }
+
+
+        .hero-image:hover img {
+
+            transform: scale(1.07);
+
+        }
+
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products-section {
+
+            padding: 100px 7%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fff,
+                    #fff8fb
+                );
+
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 55px;
+
+            animation: fadeUp .8s ease both;
+
+        }
+
+
+        .section-title span {
+
+            color: #e58aaa;
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+        }
+
+
+        .section-title h2 {
+
+            font-size: 38px;
+
+            color: #56343e;
+
+            margin-top: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .section-title p {
+
+            color: #8a6b73;
+
+            margin-top: 10px;
+
+            font-size: 14px;
+
+        }
+
+
+
+        /* PRODUCTS GRID */
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 30px;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+        }
+
+
+
+        /* PRODUCT CARD */
+
+        .product-card {
+
+            background:
+                rgba(255,255,255,.8);
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 35px rgba(190,120,145,.10);
+
+            transition:
+                transform .45s,
+                box-shadow .45s;
+
+            border:
+                1px solid #f8dfe8;
+
+            position: relative;
+
+            animation:
+                fadeUp .8s ease both;
+
+        }
+
+
+        .product-card:nth-child(1) {
+            animation-delay: .1s;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: .25s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: .4s;
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(35px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        .product-card:hover {
+
+            transform:
+                translateY(-12px);
+
+            box-shadow:
+                0 25px 55px rgba(190,120,145,.2);
+
+        }
+
+
+        /* IMAGE */
+
+        .product-image {
+
+            width: 100%;
+
+            height: 290px;
+
+            background: #ffe8ef;
+
+            overflow: hidden;
+
+            position: relative;
+
+        }
+
+
+        .product-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 60%,
+                    rgba(70,30,45,.08)
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .product-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .7s cubic-bezier(.2,.8,.2,1);
+
+        }
+
+
+        .product-card:hover
+        .product-image img {
+
+            transform: scale(1.09);
+
+        }
+
+
+
+        /* PRODUCT INFO */
+
+        .product-info {
+
+            padding: 25px;
+
+        }
+
+
+        .product-info h3 {
+
+            font-size: 21px;
+
+            color: #56343e;
+
+            margin-bottom: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .product-info p {
+
+            color: #856872;
+
+            font-size: 13px;
+
+            line-height: 2;
+
+            min-height: 78px;
+
+        }
+
+
+        .product-bottom {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 20px;
+
+            gap: 10px;
+
+        }
+
+
+        .price {
+
+            color: #df789d;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+        }
+
+
+        .buy-button {
+
+            border: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f3a9c0,
+                    #e789ab
+                );
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 22px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 7px 18px rgba(230,130,160,.2);
+
+            transition: .3s;
+
+        }
+
+
+        .buy-button:hover {
+
+            transform:
+                translateY(-3px)
+                scale(1.03);
+
+            box-shadow:
+                0 10px 25px rgba(230,130,160,.3);
+
+        }
+
+
+        .buy-button:active {
+
+            transform:
+                scale(.94);
+
+        }
+
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+
+            padding: 100px 8%;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #ffe7ef
+                );
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .about::before {
+
+            content: "🍰";
+
+            position: absolute;
+
+            font-size: 180px;
+
+            opacity: .05;
+
+            left: 5%;
+
+            top: 20px;
+
+            transform: rotate(-15deg);
+
+        }
+
+
+        .about::after {
+
+            content: "🧁";
+
+            position: absolute;
+
+            font-size: 160px;
+
+            opacity: .05;
+
+            right: 5%;
+
+            bottom: 0;
+
+            transform: rotate(15deg);
+
+        }
+
+
+        .about h2 {
+
+            font-size: 34px;
+
+            color: #56343e;
+
+            margin-bottom: 20px;
+
+            font-weight: 800;
+
+        }
+
+
+        .about p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            line-height: 2.2;
+
+            color: #765862;
+
+        }
+
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5c3b45,
+                    #432932
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px;
+
+        }
+
+
+        footer strong {
+
+            color: #f4a9c1;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+        }
+
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            right: 25px;
+
+            background:
+                rgba(70,40,50,.95);
+
+            color: white;
+
+            padding: 16px 23px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.2);
+
+            opacity: 0;
+
+            transform:
+                translateY(30px)
+                scale(.95);
+
+            pointer-events: none;
+
+            transition: .4s;
+
+            z-index: 9999;
+
+            font-size: 14px;
+
+        }
+
+
+        .toast.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+        }
+
+
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
+        .top-btn {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            left: 25px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: white;
+
+            color: #df789d;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(180,100,130,.2);
+
+            transition: .3s;
+
+            z-index: 999;
+
+        }
+
+
+        .top-btn:hover {
+
+            transform:
+                translateY(-5px);
+
+        }
+
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            header {
+
+                width: 96%;
+
+                padding: 0 4%;
+
+            }
+
+
+            nav {
+
+                display: none;
+
+            }
+
+
+            .hero {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 60px;
+
+                padding:
+                    80px 6%;
+
+            }
+
+
+            .hero-text {
+
+                max-width: 650px;
+
+            }
+
+
+            .hero-image {
+
+                width: 350px;
+
+                height: 350px;
+
+            }
+
+
+            .products {
+
+                grid-template-columns:
+                    1fr;
+
+                max-width: 430px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+
+                height: 68px;
+
+                top: 7px;
+
+                margin-top: 7px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .logo img {
+
+                width: 42px;
+
+                height: 42px;
+
+            }
+
+
+            .logo {
+
+                font-size: 21px;
+
+            }
+
+
+            .cart-btn {
+
+                padding:
+                    9px 13px;
+
+                font-size: 12px;
+
+            }
+
+
+            .hero {
+
+                padding:
+                    70px 5%;
+
+            }
+
+
+            .hero-text h1 {
+
+                font-size: 39px;
+
+            }
+
+
+            .hero-text p {
+
+                font-size: 14px;
+
+            }
+
+
+            .hero-image {
+
+                width: 290px;
+
+                height: 290px;
+
+            }
+
+
+            .section-title h2 {
+
+                font-size: 30px;
+
+            }
+
+
+            .product-image {
+
+                height: 300px;
+
+            }
+
+
+            .toast {
+
+                right: 15px;
+
+                left: 15px;
+
+                bottom: 15px;
+
+                text-align: center;
+
+            }
+
+
+            .top-btn {
+
+                bottom: 80px;
+
+                left: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+
+        <!-- 🔴 عکس لوگو -->
+
+        <img
+            src="https://imglink.cc/cdn/8Vl7kt3xrn.png"
+            alt="cakemofa">
+
+        <span>cakemofa</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#">خانه</a>
+
+        <a href="#products">محصولات</a>
+
+        <a href="#about">درباره ما</a>
+
+        <a href="#contact">تماس با ما</a>
+
+    </nav>
+
+
+    <a
+        href="cart.html"
+        class="cart-btn">
+
+        🛒 سبد خرید
+
+        <span id="cart-count">0</span>
+
+    </a>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+
+    <div class="hero-text">
+
+        <span>🍰 شیرینی با عشق</span>
+
+
+        <h1>
+
+            دنیای شیرین
+
+            <strong>cakemofa</strong>
+
+        </h1>
+
+
+        <p>
+
+            طعم‌های خاص، کیک‌های تازه و شیرینی‌هایی
+            که برای شیرین‌تر کردن لحظه‌های شما
+            با عشق آماده شده‌اند.
+
+        </p>
+
+
+        <a
+            href="#products"
+            class="hero-button">
+
+            مشاهده محصولات
+
+        </a>
+
+    </div>
+
+
+
+    <div class="hero-image">
+
+        <!-- 🔴 عکس اصلی -->
+
+        <img
+            src="https://imglink.cc/cdn/3PznU7Sr2h.jpg"
+            alt="cakemofa">
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section
+    class="products-section"
+    id="products">
+
+
+    <div class="section-title">
+
+        <span>محبوب‌ترین‌ها ✨</span>
+
+        <h2>محصولات cakemofa</h2>
+
+        <p>
+            انتخابی شیرین برای لحظه‌های خاص شما
+        </p>
+
+    </div>
+
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                <a href="redvelvet.html"><img
+                    src="https://imglink.cc/cdn/0zm21Y8cOX.jpg"
+                    alt="کیک ردولوت"></a>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    کیک ردولوت
+                </h3>
+
+
+                <p>
+
+                    ردولوت ❤️
+
+                    کیک مخملی و لطیف با طعم
+                    ملایم شکلات، همراه با کرم پنیر
+                    خامه‌ای؛ ترکیبی متعادل از
+                    شیرینی و کمی طعم ترش و خامه‌ای.
+
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        1,000,000 تومان
+                    </span>
+
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart(
+                            'کیک ردولوت',
+                            '1,000,000 تومان'
+                        )">
+
+                        افزودن 🛒
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                <a href="darkchocolate.html"><img
+                    src="https://imglink.cc/cdn/voBd9YNqeI.jpg"
+                    alt="کیک دارک چاکلت"></a>
+
+                
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    کیک دارک چاکلت
+                </h3>
+
+
+                <p>
+
+                    دارک چاکلت 🍫
+
+                    کیک شکلاتی عمیق و مرطوب
+                    با طعم غنی شکلات تلخ؛
+                    مناسب برای عاشقان طعم
+                    شکلاتیِ جدی و لوکس.
+
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        1,200,000 تومان
+                    </span>
+
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart(
+                            'کیک دارک چاکلت',
+                            '1,200,000 تومان'
+                        )">
+
+                        افزودن 🛒
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                <a href="snickers.html"><img
+                    src="https://imglink.cc/cdn/dzC1HxjTh4.jpg"
+                    alt="کیک اسنیکرز"></a>
+            
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    کیک اسنیکرز
+                </h3>
+
+
+                <p>
+
+                    اسنیکرز 🥜🍫
+
+                    ترکیبی جذاب از کیک شکلاتی،
+                    کارامل، کرم و بادام‌زمینی؛
+                    شیرین، غنی و شبیه طعم
+                    محبوب شکلات اسنیکرز.
+
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        1,300,000 تومان
+                    </span>
+
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart(
+                            'کیک اسنیکرز',
+                            '1,300,000 تومان'
+                        )">
+
+                        افزودن 🛒
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
+    class="about"
+    id="about">
+
+
+    <h2>
+        درباره cakemofa 🍰
+    </h2>
+
+
+    <p>
+
+        cakemofa جایی برای عاشقان کیک و شیرینی است؛
+        جایی که هر محصول با عشق و توجه آماده می‌شود
+        تا یک طعم شیرین و خاطره‌انگیز برای شما بسازد.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <p>
+
+        © 2026
+
+        <strong>cakemofa</strong>
+
+        — همه حقوق محفوظ است.
+
+    </p>
+
+</footer>
+
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast">
+
+    🍰 محصول با موفقیت به سبد خرید اضافه شد!
+
+</div>
+
+
+
+<!-- BACK TO TOP -->
+
+<button
+    class="top-btn"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+    ↑
+
+</button>
+
+
+
+<script>
+
+
+    /* =========================
+       سبد خرید
+    ========================= */
+
+    function addToCart(name, price) {
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "cakemofa_cart"
+                )
+            ) || [];
+
+
+        cart.push({
+
+            name: name,
+
+            price: price
+
+        });
+
+
+        localStorage.setItem(
+
+            "cakemofa_cart",
+
+            JSON.stringify(cart)
+
+        );
+
+
+        updateCartCount();
+
+        showToast();
+
+    }
+
+
+
+    /* =========================
+       تعداد سبد
+    ========================= */
+
+    function updateCartCount() {
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "cakemofa_cart"
+                )
+            ) || [];
+
+
+        const count =
+            document.getElementById(
+                "cart-count"
+            );
+
+
+        count.textContent =
+            cart.length;
+
+
+        count.classList.remove(
+            "cart-count-pop"
+        );
+
+
+        void count.offsetWidth;
+
+
+        count.classList.add(
+            "cart-count-pop"
+        );
+
+    }
+
+
+
+    /* =========================
+       Toast
+    ========================= */
+
+    function showToast() {
+
+        const toast =
+            document.getElementById(
+                "toast"
+            );
+
+
+        toast.classList.add("show");
+
+
+        setTimeout(function() {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        }, 2200);
+
+    }
+
+
+
+    /* =========================
+       اجرای اولیه
+    ========================= */
+
+    updateCartCount();
+
+
+</script>
+
+
+</body>
+
+</html>

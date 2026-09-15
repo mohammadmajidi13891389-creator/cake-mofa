@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مدیریت | cakemofa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Vazirmatn", sans-serif;
+            background: #fff7fa;
+            color: #3b2930;
+        }
+
+        /* Header */
+
+        header {
+            height: 75px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #f2dce4;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 40px;
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 23px;
+            font-weight: 800;
+            color: #d85b82;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .admin-title {
+            font-size: 15px;
+            color: #856772;
+        }
+
+        /* Container */
+
+        .container {
+            width: min(1250px, 94%);
+            margin: 35px auto;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            margin: 0;
+            font-size: 30px;
+            color: #442e36;
+        }
+
+        .page-title p {
+            margin-top: 8px;
+            color: #967782;
+        }
+
+        /* Stats */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            background: white;
+            border: 1px solid #f1dce4;
+            border-radius: 20px;
+            padding: 22px;
+
+            box-shadow: 0 8px 25px rgba(190, 100, 130, 0.07);
+        }
+
+        .stat-title {
+            color: #967782;
+            font-size: 14px;
+        }
+
+        .stat-value {
+            margin-top: 10px;
+            font-size: 27px;
+            font-weight: 800;
+            color: #d6537c;
+        }
+
+        /* Orders */
+
+        .orders-box {
+            background: white;
+            border: 1px solid #f1dce4;
+            border-radius: 22px;
+            overflow: hidden;
+
+            box-shadow: 0 8px 30px rgba(190, 100, 130, 0.08);
+        }
+
+        .orders-header {
+            padding: 22px 25px;
+            border-bottom: 1px solid #f3e4e8;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .orders-header h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .refresh-btn {
+            border: none;
+            background: #ffe1eb;
+            color: #c9436d;
+
+            padding: 10px 16px;
+            border-radius: 12px;
+
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+        }
+
+        .refresh-btn:hover {
+            background: #ffd1df;
+        }
+
+        /* Table */
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 850px;
+        }
+
+        th,
+        td {
+            padding: 17px 18px;
+            text-align: right;
+            border-bottom: 1px solid #f5e8ec;
+            white-space: nowrap;
+        }
+
+        th {
+            background: #fff9fb;
+            color: #866875;
+            font-size: 13px;
+        }
+
+        td {
+            font-size: 14px;
+        }
+
+        .order-id {
+            font-weight: 800;
+            color: #c94870;
+        }
+
+        .customer {
+            font-weight: 600;
+        }
+
+        .price {
+            font-weight: 700;
+        }
+
+        /* Status */
+
+        .status {
+            display: inline-block;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .status.pending {
+            background: #fff1cf;
+            color: #9b7000;
+        }
+
+        .status.paid {
+            background: #dff8e8;
+            color: #21854c;
+        }
+
+        .status.failed {
+            background: #ffe1e1;
+            color: #c03939;
+        }
+
+        .status.processing {
+            background: #e5edff;
+            color: #4264b5;
+        }
+
+        /* Empty */
+
+        .empty {
+            text-align: center;
+            padding: 70px 20px;
+            color: #a28b93;
+        }
+
+        .empty-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        /* Loading */
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #92747f;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 850px) {
+
+            header {
+                padding: 0 18px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-title h1 {
+                font-size: 25px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            .admin-title {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="brand">
+            <img src="https://imglink.cc/cdn/MRI-pwqIUq.png" alt="cakemofa">
+            <span>cakemofa</span>
+        </div>
+
+        <div class="admin-title">
+            پنل مدیریت فروشگاه
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <div class="page-title">
+
+            <h1>
+                داشبورد مدیریت 👋
+            </h1>
+
+            <p>
+                سفارش‌های فروشگاه را از اینجا مدیریت کن.
+            </p>
+
+        </div>
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat">
+                <div class="stat-title">
+                    کل سفارش‌ها
+                </div>
+
+                <div class="stat-value" id="totalOrders">
+                    0
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-title">
+                    سفارش‌های پرداخت‌شده
+                </div>
+
+                <div class="stat-value" id="paidOrders">
+                    0
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-title">
+                    در انتظار پرداخت
+                </div>
+
+                <div class="stat-value" id="pendingOrders">
+                    0
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-title">
+                    فروش کل
+                </div>
+
+                <div class="stat-value" id="totalSales">
+                    0 تومان
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Orders -->
+
+        <section class="orders-box">
+
+            <div class="orders-header">
+
+                <h2>
+                    📦 سفارش‌ها
+                </h2>
+
+                <button class="refresh-btn" onclick="loadOrders()">
+                    🔄 بروزرسانی
+                </button>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>شماره سفارش</th>
+                            <th>مشتری</th>
+                            <th>تلفن</th>
+                            <th>محصولات</th>
+                            <th>مبلغ</th>
+                            <th>پرداخت</th>
+                            <th>تاریخ</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="ordersBody">
+
+                        <tr>
+                            <td colspan="7">
+                                <div class="loading">
+                                    در حال دریافت سفارش‌ها...
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function formatPrice(price) {
+
+            return Number(price).toLocaleString("fa-IR") + " تومان";
+
+        }
+
+
+        function formatDate(date) {
+
+        if (!date) {
+            return "-";
+        }
+
+        // SQLite CURRENT_TIMESTAMP را به UTC ذخیره می‌کند
+        const utcDate = new Date(date.replace(" ", "T") + "Z");
+
+        return utcDate.toLocaleDateString("fa-IR", {
+        timeZone: "Asia/Tehran"
+        }) +
+            " - " +
+            utcDate.toLocaleTimeString("fa-IR", {
+                timeZone: "Asia/Tehran",
+                hour: "2-digit",
+                minute: "2-digit"
+         });
+
+        }
+
+
+        function getStatusText(status) {
+
+            const statuses = {
+
+                pending: "در انتظار پرداخت",
+
+                paid: "پرداخت شده",
+
+                failed: "پرداخت ناموفق",
+
+                processing: "در حال آماده‌سازی"
+
+            };
+
+            return statuses[status] || status || "نامشخص";
+
+        }
+
+
+        function getStatusClass(status) {
+
+            if (status === "paid") {
+                return "paid";
+            }
+
+            if (status === "failed") {
+                return "failed";
+            }
+
+            if (status === "processing") {
+                return "processing";
+            }
+
+            return "pending";
+
+        }
+
+
+        async function loadOrders() {
+
+            const body = document.getElementById("ordersBody");
+
+            body.innerHTML = `
+                <tr>
+                    <td colspan="7">
+                        <div class="loading">
+                            در حال دریافت سفارش‌ها...
+                        </div>
+                    </td>
+                </tr>
+            `;
+
+
+            try {
+
+                const response = await fetch("/api/orders");
+
+                if (!response.ok) {
+                    throw new Error("خطا در دریافت سفارش‌ها");
+                }
+
+
+                const orders = await response.json();
+
+
+                updateStatistics(orders);
+
+
+                if (!orders.length) {
+
+                    body.innerHTML = `
+                        <tr>
+                            <td colspan="7">
+
+                                <div class="empty">
+
+                                    <div class="empty-icon">
+                                        📦
+                                    </div>
+
+                                    هنوز سفارشی ثبت نشده است.
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    `;
+
+                    return;
+                }
+
+
+                body.innerHTML = orders.map(order => {
+
+                    const products = order.items
+                        ? order.items.map(item => {
+                            return `${item.name} × ${item.quantity || 1}`;
+                        }).join("، ")
+                        : "-";
+
+
+                    return `
+                        <tr>
+
+                            <td>
+                                <span class="order-id">
+                                    #${order.id}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="customer">
+                                    ${order.customer?.name || "-"}
+                                </span>
+                            </td>
+
+                            <td>
+                                ${order.customer?.phone || "-"}
+                            </td>
+
+                            <td>
+                                ${products}
+                            </td>
+
+                            <td>
+                                <span class="price">
+                                    ${formatPrice(order.amount || 0)}
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <span class="status ${getStatusClass(order.status)}">
+                                    ${getStatusText(order.status)}
+                                </span>
+
+                            </td>
+
+                            <td>
+                                ${formatDate(order.createdAt)}
+                            </td>
+
+                        </tr>
+                    `;
+
+                }).join("");
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                body.innerHTML = `
+                    <tr>
+                        <td colspan="7">
+
+                            <div class="empty">
+
+                                <div class="empty-icon">
+                                    ⚠️
+                                </div>
+
+                                دریافت سفارش‌ها انجام نشد.
+
+                                <br><br>
+
+                                <small>
+                                    مطمئن شو سرور Node.js در حال اجراست.
+                                </small>
+
+                            </div>
+
+                        </td>
+                    </tr>
+                `;
+
+            }
+
+        }
+
+
+        function updateStatistics(orders) {
+
+            const total = orders.length;
+
+            const paid = orders.filter(
+                order => order.status === "paid"
+            ).length;
+
+            const pending = orders.filter(
+                order => order.status === "pending"
+            ).length;
+
+            const sales = orders
+                .filter(order => order.status === "paid")
+                .reduce(
+                    (sum, order) => sum + Number(order.amount || 0),
+                    0
+                );
+
+
+            document.getElementById("totalOrders").textContent =
+                total.toLocaleString("fa-IR");
+
+
+            document.getElementById("paidOrders").textContent =
+                paid.toLocaleString("fa-IR");
+
+
+            document.getElementById("pendingOrders").textContent =
+                pending.toLocaleString("fa-IR");
+
+
+            document.getElementById("totalSales").textContent =
+                formatPrice(sales);
+
+        }
+
+
+        loadOrders();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Chocolate | cakemofa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:"Vazirmatn",sans-serif;
+            background:linear-gradient(135deg,#fff8fb,#f6eef2);
+            color:#473039;
+            min-height:100vh;
+        }
+
+        header{
+            position:sticky;
+            top:0;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 8%;
+            background:rgba(255,255,255,.82);
+            backdrop-filter:blur(16px);
+            box-shadow:0 5px 20px rgba(0,0,0,.08);
+            z-index:99;
+        }
+
+        .logo{
+            font-family:"Playfair Display",serif;
+            color:#df789d;
+            font-size:30px;
+        }
+
+        .back{
+            text-decoration:none;
+            color:#df789d;
+            font-weight:700;
+        }
+
+        .container{
+            max-width:1150px;
+            margin:auto;
+            padding:60px 8%;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:55px;
+            align-items:center;
+        }
+
+        .image{
+            border-radius:30px;
+            overflow:hidden;
+            box-shadow:0 25px 60px rgba(90,50,60,.18);
+            animation:zoom .8s ease;
+        }
+
+        .image img{
+            width:100%;
+            display:block;
+            transition:.7s;
+        }
+
+        .image:hover img{
+            transform:scale(1.08);
+        }
+
+        .info{
+            animation:slide .9s ease;
+        }
+
+        .tag{
+            display:inline-block;
+            background:#f3dce4;
+            color:#b8446f;
+            padding:7px 16px;
+            border-radius:999px;
+            font-size:13px;
+            margin-bottom:16px;
+        }
+
+        h1{
+            font-family:"Playfair Display",serif;
+            font-size:54px;
+            color:#452933;
+        }
+
+        h2{
+            color:#b8446f;
+            margin:8px 0 20px;
+            font-size:26px;
+        }
+
+        p{
+            line-height:2.2;
+            color:#6b555d;
+            margin-bottom:25px;
+        }
+
+        .price{
+            font-size:34px;
+            color:#cf5a84;
+            font-weight:800;
+            margin-bottom:25px;
+        }
+
+        .btn{
+            border:none;
+            background:linear-gradient(135deg,#5d3c46,#8d5868);
+            color:#fff;
+            padding:16px 28px;
+            border-radius:18px;
+            font:700 16px "Vazirmatn";
+            cursor:pointer;
+            transition:.3s;
+            box-shadow:0 12px 25px rgba(70,40,50,.25);
+        }
+
+        .btn:hover{
+            transform:translateY(-4px);
+        }
+
+        .card{
+            background:#fff;
+            margin-top:28px;
+            padding:22px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,.06);
+        }
+
+        .card h3{
+            color:#b8446f;
+            margin-bottom:12px;
+        }
+
+        .toast{
+            position:fixed;
+            bottom:25px;
+            right:25px;
+            background:#3f2a31;
+            color:#fff;
+            padding:14px 20px;
+            border-radius:14px;
+            opacity:0;
+            transform:translateY(20px);
+            transition:.3s;
+        }
+
+        .toast.show{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        @keyframes zoom{
+            from{opacity:0;transform:scale(.9)}
+            to{opacity:1;transform:scale(1)}
+        }
+
+        @keyframes slide{
+            from{opacity:0;transform:translateX(-40px)}
+            to{opacity:1;transform:translateX(0)}
+        }
+
+        @media(max-width:850px){
+            .container{grid-template-columns:1fr}
+            h1{font-size:42px}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back">← بازگشت</a>
+    <div class="logo">cakemofa</div>
+</header>
+
+<section class="container">
+
+    <div class="image">
+        <img src="https://imglink.cc/cdn/voBd9YNqeI.jpg" alt="Dark Chocolate">
+    </div>
+
+    <div class="info">
+
+        <span class="tag">Dark Chocolate Collection</span>
+
+        <h1>Dark Chocolate</h1>
+
+        <h2>کیک دارک چاکلت 🍫</h2>
+
+        <p>
+            کیک شکلاتی عمیق و مرطوب با طعم غنی شکلات تلخ.
+            تهیه شده از شکلات تلخ با کیفیت بالا و گاناش دست‌ساز،
+            مناسب کسانی که عاشق طعم لوکس و واقعی شکلات هستند.
+        </p>
+
+        <div class="price">1,200,000 تومان</div>
+
+        <button class="btn" onclick="addCart()">
+            🛒 افزودن به سبد خرید
+        </button>
+
+        <div class="card">
+            <h3>ویژگی‌های محصول</h3>
+            <p>
+                • شکلات تلخ ۷۰٪<br>
+                • گاناش براق دست‌ساز<br>
+                • مناسب ۸ تا ۱۰ نفر<br>
+                • بافت بسیار نرم و مرطوب
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<div id="toast" class="toast">
+    🍫 به سبد خرید اضافه شد!
+</div>
+
+<script>
+function addCart(){
+
+    let cart =
+        JSON.parse(localStorage.getItem("cakemofa_cart")) || [];
+
+    cart.push({
+        name:"کیک دارک چاکلت",
+        price:"1,200,000 تومان"
+    });
+
+    localStorage.setItem("cakemofa_cart",JSON.stringify(cart));
+
+    const toast=document.getElementById("toast");
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },2000);
+}
+</script>
+
+</body>
+</html>
