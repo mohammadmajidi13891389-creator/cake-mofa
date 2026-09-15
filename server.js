@@ -4,7 +4,6 @@ const express = require("express");
 const path = require("path");
 const db = require("./database");
 
-const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -506,6 +505,12 @@ app.patch("/api/orders/:id/status", (req, res) => {
 // اجرای سرور
 // ===============================
 
+const PORT = process.env.PORT || 3000;
+
+
+app.get("/health", (req, res) => {
+    res.status(200).send("cakemofa is alive!");
+});
 
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on ${PORT}`);
